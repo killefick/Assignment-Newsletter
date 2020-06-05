@@ -1,5 +1,4 @@
 import React, { Component } from "react";
-import axios from "axios";
 
 export default class Header extends Component {
   constructor(props) {
@@ -27,26 +26,40 @@ export default class Header extends Component {
   handleSubmit = (e) => {
     e.preventDefault();
     const { username, password } = this.state;
-    axios
-      .post("http://localhost:9000/loginuser", {
-        user: {
-          username: username,
-          password: password,
-        },
-      })
-      .then((response) => {
+
+    const requestOptions = {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ username: username, password: password }),
+    };
+
+    fetch("http://localhost:9000/loginuser", requestOptions)
+      .then(async (response) => {
+        const data = await response.json();
+
+        // check for error response
+        if (!response.ok) {
+          // get error message from body or default to response status
+          const error = (data && data.message) || response.status;
+          return Promise.reject(error);
+        }
         this.setState({
           userId: response.data.id,
           username: response.data.username,
           newsletter: response.data.newsletter,
         });
-        // send values to App
-        this.props.sendUserData(
-          this.state.userId,
-          this.state.username,
-          this.state.newsletter
-        );
+      })
+      .catch((error) => {
+        this.setState({ errorMessage: error.toString() });
+        console.error("There was an error!", error);
       });
+
+    // send values to App by callback
+    this.props.sendUserData(
+      this.state.userId,
+      this.state.username,
+      this.state.newsletter
+    );
   };
 
   // log out user
