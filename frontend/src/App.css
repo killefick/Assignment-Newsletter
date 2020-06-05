@@ -1,0 +1,35 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  text-align: center;
+}
+
+.btn {
+  margin: 5px 10px 5px 10px;
+  padding: 2px;
+  width: 150px;
+}
+
+.login-form {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: lightgray;
+}
+
+#username {
+  margin-top: 10px;
+  width: 150px;
+}
+#password {
+  margin-top: 2px;
+  width: 150px;
+}
+
+.main-page {
+  background-color: lightskyblue;
+  padding: 10px;
+  height: 50vw;
+}
