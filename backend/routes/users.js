@@ -2,17 +2,17 @@ var express = require("express");
 var router = express.Router();
 var fs = require("fs");
 
-/* GET users listing. */
+// show all users
   router.get('/', function(req, res, next) {
   fs.readFile("users.json", (err, data) => {
     if (err) throw err;
-    let users = JSON.parse(data);
+    let usersFromDb = JSON.parse(data);
 
     let html = "";
     html += "<html>";
     html += "<body>";
 
-    users.forEach((user) => {
+    usersFromDb.forEach((user) => {
       html += `<div id=${user.id}>`;
       html += `Id: ${user.id}<br>`;
       html += `Username: ${user.username}<br>`;

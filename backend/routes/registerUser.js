@@ -4,13 +4,14 @@ var fs = require("fs");
 var { v4: uuidv4 } = require("uuid");
 var cryptoJS = require("crypto-js");
 
+// register new user
 router.post("/", (req, res, next) => {
   let newUser = req.body.user;
-  let savedUsers = [];
+  let usersFromDb = [];
 
   fs.readFile("./users.json", (err, data) => {
     if (err) throw err;
-    savedUsers = JSON.parse(data);
+    usersFromDb = JSON.parse(data);
     
     newUser.id = uuidv4();
 
@@ -20,9 +21,9 @@ router.post("/", (req, res, next) => {
     ).toString();
     newUser.password = encryptedPwd;
 
-    savedUsers.push(newUser);
+    usersFromDb.push(newUser);
 
-    let usersToSave = JSON.stringify(savedUsers, null, 2);
+    let usersToSave = JSON.stringify(usersFromDb, null, 2);
     fs.writeFile("./users.json", usersToSave, (err) => {
       if (err) throw err;
     });

@@ -2,39 +2,35 @@ var express = require("express");
 var router = express.Router();
 var fs = require("fs");
 
+// get newsletter status
 router.get("/:id", (req, res) => {
-  let userId = req.params.id;
+  let incominUserId = req.body.user.id;
 
   fs.readFile("users.json", (err, data) => {
     if (err) throw err;
 
-    // get users fom Db
-    let users = JSON.parse(data);
+    let usersFromDb = JSON.parse(data);
 
-    var loggedInUserData = users.find((u) => u.id == userId);
-    delete loggedInUserData.id;
-    delete loggedInUserData.email;
-    delete loggedInUserData.password;
+    var match = usersFromDb.find((m) => m.id == incominUserId);
 
-    res.send(loggedInUserData);
+    res.send(match.newsletter);
   });
 });
 
+// put newsletter status
 router.put("/:id", (req, res) => {
-  let userId = req.body.user.id;
+  let incominUserId = req.body.user.id;
 
   fs.readFile("users.json", (err, data) => {
     if (err) throw err;
-    let users = JSON.parse(data);
+    let usersFromDb = JSON.parse(data);
 
-    // find user
-    var loggedInUserData = users.find((u) => u.id == userId);
+    var match = usersFromDb.find((u) => u.id == incominUserId);
 
-    // change value
-    loggedInUserData.newsletter = req.body.user.newsletter;
+    match.newsletter = req.body.user.newsletter;
 
-    // save to file
-    let usersToSave = JSON.stringify(users, null, 2);
+    let usersToSave = JSON.stringify(usersFromDb, null, 2);
+    
     fs.writeFile("./users.json", usersToSave, (err) => {
       if (err) throw err;
     });

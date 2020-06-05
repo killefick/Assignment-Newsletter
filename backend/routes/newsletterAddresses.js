@@ -7,10 +7,10 @@ router.get('/', function(req, res, next) {
     fs.readFile('users.json', (err, data) => {
         if (err) throw err;
 
-        let users = JSON.parse(data);
+        let usersFromDb = JSON.parse(data);
         let mailaddresses = [];
 
-        users.forEach(user => {
+        usersFromDb.forEach(user => {
             if (user.newsletter === true) {
                 mailaddresses.push(user.email)
             }

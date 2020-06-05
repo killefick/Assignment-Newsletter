@@ -5,5 +5,12 @@
     "newsletter": false,
     "email": "admin@admin.se",
     "id": 1
+  },
+  {
+    "username": "a",
+    "password": "U2FsdGVkX19hIQAMI4XRWv69wRx7dRqSahIKZWOyMVw=",
+    "email": "a",
+    "newsletter": true,
+    "id": "2af37cc8-1dd7-49d8-9437-65e99f007abc"
   }
 ]
