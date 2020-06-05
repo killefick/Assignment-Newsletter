@@ -35,7 +35,7 @@ export default class MainPage extends Component {
       })
       .then(() => {
         // refresh page
-        window.location.reload(false);
+        window.location.reload();
       });
   };
 
@@ -46,7 +46,7 @@ export default class MainPage extends Component {
         newsletter: this.props.userNewsletter === true ? false : true,
       },
     });
-    window.location.reload(false);
+    window.location.reload();
   };
 
   render() {

@@ -68,7 +68,7 @@ export default class Header extends Component {
     });
     // tell App that user logged out
     this.props.setUserData(this.state.userId);
-    window.location.reload(false);
+    window.location.reload();
   };
 
   render() {
