@@ -5,7 +5,7 @@ var cryptoJS = require("crypto-js");
 
 // login user
 router.post("/", (req, res) => {
-  let userToLogin = req.body.user;
+  let userToLogin = req.body;
 
   fs.readFile("users.json", (err, data) => {
     if (err) throw err;

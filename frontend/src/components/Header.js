@@ -44,9 +44,9 @@ export default class Header extends Component {
           return Promise.reject(error);
         }
         this.setState({
-          userId: response.data.id,
-          username: response.data.username,
-          newsletter: response.data.newsletter,
+          userId: data.id,
+          username: data.username,
+          newsletter: data.newsletter,
         });
       })
       .catch((error) => {
