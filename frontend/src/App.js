@@ -37,14 +37,14 @@ export default class App extends Component {
         <h1>Newsletter</h1>
         <Header
           // send userData object to child
-          sendUserData={this.setUserData}
+          setUserData={this.setUserData.bind(this)}
           // enable user registration on button
           callbackWantsToRegister={this.setWantsToRegister.bind(this)}
         />
         <MainPage
           // send props to child
           userId={this.state.userId}
-          sendUserData={this.setUserData}
+          setUserData={this.setUserData}
           currentUserName={this.state.username}
           userNewsletter={this.state.newsletter}
           registration={this.state.wantsToRegister}

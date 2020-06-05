@@ -43,25 +43,22 @@ export default class Header extends Component {
           const error = (data && data.message) || response.status;
           return Promise.reject(error);
         }
-        console.log(data);
         this.setState({
           userId: data.id,
           username: data.username,
           newsletter: data.newsletter,
         });
-        console.log(this.state.userId);
+        // send values to App by callback
+        this.props.setUserData(
+          this.state.userId,
+          this.state.username,
+          this.state.newsletter
+        );
       })
       .catch((error) => {
         this.setState({ errorMessage: error.toString() });
         console.error("There was an error!", error);
       });
-
-    // send values to App by callback
-    this.props.sendUserData(
-      this.state.userId,
-      this.state.username,
-      this.state.newsletter
-    );
   };
 
   // log out user
@@ -70,7 +67,7 @@ export default class Header extends Component {
       userId: "",
     });
     // tell App that user logged out
-    this.props.sendUserData(this.state.userId);
+    this.props.setUserData(this.state.userId);
     window.location.reload(false);
   };
 
