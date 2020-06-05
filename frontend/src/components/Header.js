@@ -43,11 +43,13 @@ export default class Header extends Component {
           const error = (data && data.message) || response.status;
           return Promise.reject(error);
         }
+        console.log(data);
         this.setState({
           userId: data.id,
           username: data.username,
           newsletter: data.newsletter,
         });
+        console.log(this.state.userId);
       })
       .catch((error) => {
         this.setState({ errorMessage: error.toString() });
