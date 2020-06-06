@@ -5,5 +5,33 @@
     "newsletter": false,
     "email": "admin@admin.se",
     "id": 1
+  },
+  {
+    "username": "Olle",
+    "password": "U2FsdGVkX1/Qrvsacw6fLBcEyhwy+fREoHiyz68NRAY=",
+    "email": "olle@gmail.com",
+    "newsletter": true,
+    "id": "bbad5dda-33bb-4be9-b8d0-f7608c354c4a"
+  },
+  {
+    "username": "Lasse",
+    "password": "U2FsdGVkX1+AWSFJOyrL2FySWvXRLTZhEF2eC23y9ko=",
+    "email": "lasse@reinstroem.se",
+    "newsletter": true,
+    "id": "d691eaea-a46e-42e1-b723-5c4df5f41387"
+  },
+  {
+    "username": "Olga",
+    "password": "U2FsdGVkX18iJtcud4ZdumyEMBY5gq9XJLk/4GjuHmY=",
+    "email": "olga@machslochoff.ru",
+    "newsletter": true,
+    "id": "ceea658d-aca0-4859-92eb-9a0a0e0bf4dc"
+  },
+  {
+    "username": "Peter",
+    "password": "U2FsdGVkX1+0J1Y+o2QdZT9kJmbKliTaxORLFAByfpU=",
+    "email": "peter@hotmail.com",
+    "newsletter": false,
+    "id": "9a20c882-f31f-41cb-96ee-b8110c266ca7"
   }
 ]
