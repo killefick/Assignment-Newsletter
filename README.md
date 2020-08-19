@@ -2,7 +2,6 @@
 
 Here the task was to create a React frontend and a Node backend with the possibility to create a user and sign up/opt out for a newsletter. 
 
-
 Inlämningsuppgift - Vill du ha mitt nyhetsbrev?
 Nu skall vi bygga en enkel webbapplikation som samlar information från besökare och sedan gör dem tillgängliga för webbsidans administratör.
 Till denna uppgift så ska du använda dig utav node.js som backend.
